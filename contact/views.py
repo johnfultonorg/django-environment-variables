@@ -42,9 +42,9 @@ def contact_view(request):
         dot_env_variable = os.getenv('SAMPLE_DOT_ENV_VALUE')
         
         #railway process variables
-        if 'SAMPLE_RAILWAY_ENV_VARIABLES' in os.environ:
-            print(os.environ.SAMPLE_RAILWAY_ENV_VARIABLES)
-            railway_variable = os.environ.SAMPLE_DJANGO_SETTINGS_VALUE
+        if os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'):
+            print(os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'))
+            railway_variable = os.getenv('SAMPLE_DJANGO_SETTINGS_VALUE')
         else:
             railway_variable = ''
         
