@@ -23,7 +23,7 @@ def contact_view(request):
         form = ContactForm()
         
         #os environment variable
-        if os.environ['SAMPLE_SYSTEM_VARIABLE']:
+        if 'SAMPLE_SYSTEM_VARIABLE' in os.environ:
             print(os.environ['SAMPLE_SYSTEM_VARIABLE'])
             os_variable = os.environ['SAMPLE_SYSTEM_VARIABLE']
         else:
