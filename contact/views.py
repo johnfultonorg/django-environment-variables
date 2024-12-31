@@ -27,6 +27,7 @@ def contact_view(request):
             print(os.environ['SAMPLE_SYSTEM_VARIABLE'])
             os_variable = os.environ['SAMPLE_SYSTEM_VARIABLE']
         else:
+            print("SAMPLE_SYSTEM_VARIABLE not found")
             os_variable = ''
         
         #django setting variable
@@ -34,6 +35,7 @@ def contact_view(request):
             print(settings.SAMPLE_DJANGO_SETTINGS_VALUE)
             settings_variable = settings.SAMPLE_DJANGO_SETTINGS_VALUE
         else:
+            print("SAMPLE_DJANGO_SETTINGS_VALUE not found")
             settings_variable = ''
        
         #.env variable
@@ -46,6 +48,7 @@ def contact_view(request):
             print(os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'))
             railway_variable = os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES')
         else:
+            print("SAMPLE_RAILWAY_ENV_VARIABLES not found")
             railway_variable = ''
         
         context = {'os_variable': os_variable,
