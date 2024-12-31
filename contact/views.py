@@ -44,7 +44,7 @@ def contact_view(request):
         #railway process variables
         if os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'):
             print(os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'))
-            railway_variable = os.getenv('SAMPLE_DJANGO_SETTINGS_VALUE')
+            railway_variable = os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES')
         else:
             railway_variable = ''
         
