@@ -41,9 +41,17 @@ def contact_view(request):
         print( os.getenv('SAMPLE_DOT_ENV_VALUE'))
         dot_env_variable = os.getenv('SAMPLE_DOT_ENV_VALUE')
         
+        #railway process variables
+        if 'SAMPLE_RAILWAY_ENV_VARIABLES' in os.environ:
+            print(os.environ.SAMPLE_RAILWAY_ENV_VARIABLES)
+            railway_variable = os.environ.SAMPLE_DJANGO_SETTINGS_VALUE
+        else:
+            railway_variable = ''
+        
         context = {'os_variable': os_variable,
                    'settings_variable': settings_variable,
                    'dot_env_variable': dot_env_variable,
+                   'railway_variable': railway_variable,
                    'form': form
                    }
         return render(request, 'contact/contact.html', context)

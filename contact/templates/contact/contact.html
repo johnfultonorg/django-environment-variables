@@ -9,6 +9,7 @@
     <h2>Operating system: {{ os_variable }}</h2>
     <h2>Django settings: {{ settings_variable }}</h2>
     <h2>.env values: {{ dot_env_variable }}</h2>
+    <h2>Railway variable: {{ railway_variable }}</h2>
 
     <form method="post">
       {% csrf_token %} {{ form.as_p }}
