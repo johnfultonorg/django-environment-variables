@@ -30,14 +30,16 @@ def contact_view(request):
             os_variable = ''
         
         #django setting variable
-        print(settings.SAMPLE_DJANGO_SETTINGS_VALUE)
-        settings_variable = settings.SAMPLE_DJANGO_SETTINGS_VALUE
-        
+        if settings.SAMPLE_DJANGO_SETTINGS_VALUE:
+            print(settings.SAMPLE_DJANGO_SETTINGS_VALUE)
+            settings_variable = settings.SAMPLE_DJANGO_SETTINGS_VALUE
+        else:
+            settings_variable = ''
+       
         #.env variable
         load_dotenv()
         print( os.getenv('SAMPLE_DOT_ENV_VALUE'))
         dot_env_variable = os.getenv('SAMPLE_DOT_ENV_VALUE')
-        
         
         context = {'os_variable': os_variable,
                    'settings_variable': settings_variable,
