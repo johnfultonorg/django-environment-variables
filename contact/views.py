@@ -44,12 +44,9 @@ def contact_view(request):
         dot_env_variable = os.getenv('SAMPLE_DOT_ENV_VALUE')
         
         #railway process variables
-        if os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'):
-            print(os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES'))
-            railway_variable = os.getenv('SAMPLE_RAILWAY_ENV_VARIABLES')
-        else:
-            print("SAMPLE_RAILWAY_ENV_VARIABLES not found")
-            railway_variable = ''
+        railway_variable = get_env_variable('SAMPLE_RAILWAY_ENV_VARIABLES')
+        print(railway_variable)
+        
         
         context = {'os_variable': os_variable,
                    'settings_variable': settings_variable,
@@ -58,3 +55,12 @@ def contact_view(request):
                    'form': form
                    }
         return render(request, 'contact/contact.html', context)
+    
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        print(f"{var_name} not found")
+        return var_name
+
+
