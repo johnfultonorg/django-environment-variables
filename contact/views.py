@@ -23,8 +23,11 @@ def contact_view(request):
         form = ContactForm()
         
         #os environment variable
-        print(os.environ['SAMPLE_SYSTEM_VARIABLE'])
-        os_variable = os.environ['SAMPLE_SYSTEM_VARIABLE']
+        if os.environ['SAMPLE_SYSTEM_VARIABLE']:
+            print(os.environ['SAMPLE_SYSTEM_VARIABLE'])
+            os_variable = os.environ['SAMPLE_SYSTEM_VARIABLE']
+        else:
+            os_variable = ''
         
         #django setting variable
         print(settings.SAMPLE_DJANGO_SETTINGS_VALUE)
